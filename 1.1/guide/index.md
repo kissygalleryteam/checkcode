@@ -8,7 +8,7 @@ checkcode是依赖aliyun验证码服务的一个验证码组件，可同时实�
 
 ** 接入前需申请identity ** 服务接口人：kj021320
 
-## 快速使用
+## 快速使用 [link](../demo/index.html)
 
 ### 初始化组件
 
