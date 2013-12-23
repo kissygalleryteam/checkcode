@@ -482,7 +482,7 @@ KISSY.add(function (S) {
             if(!msg) return;
 
             var img = new Image();
-            img.src = 'http://acjs.aliyun.com/captchaerror?' + S.param(msg);
+            img.src = 'http://pin.aliyun.com/captchaerror?' + S.param(msg);
         }
     });
 
