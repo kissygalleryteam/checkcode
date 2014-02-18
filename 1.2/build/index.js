@@ -1,7 +1,7 @@
 /*
 combined files : 
 
-gallery/checkcode/1.1/index
+gallery/checkcode/1.2/index
 
 */
 /**
@@ -15,7 +15,7 @@ gallery/checkcode/1.1/index
  * @author 棪木<wondger@gmail.com>
  */
 
-KISSY.add('gallery/checkcode/1.1/index',function (S) {
+KISSY.add('gallery/checkcode/1.2/index',function (S) {
     var D = S.DOM,
         E = S.Event,
         uid = 1,
@@ -52,10 +52,10 @@ KISSY.add('gallery/checkcode/1.1/index',function (S) {
                     +'<a href="#nogo" role="button" onmousedown="return false;" title="重新获取验证码" aria-label="重新获取验证码" id="J_AudioRefresher{uid}" class="{prefixCls}checkcode-refresher">重新获取验证码</a>'
                     +'<a href="#nogo" role="button" onmousedown="return false;" title="获取图片验证码" aria-label="获取图片验证码" id="J_ImgSwitcher{uid}" class="{prefixCls}checkcode-switcher {prefixCls}img-switcher">获取图片验证码</a>'
                     +'</div>',
-            getImgURL:'{apiserver}/get_img?identity={identity}&sessionid={sessionid}&type={type}',
-            checkImgURL:'{apiserver}/check_img?identity={identity}&sessionid={sessionid}&delflag=0&type={type}',
+            getImgURL:'{apiserver}/get_img?identity={identity}&sessionid={sessionid}&kjtype={type}',
+            checkImgURL:'{apiserver}/check_img?identity={identity}&sessionid={sessionid}&delflag=0',
             getAudioURL:'{apiserver}/get_audio?identity={identity}&sessionid={sessionid}',
-            checkAudioURL:'{apiserver}/check_audio?identity={identity}&sessionid={sessionid}&delflag=0&type={type}'
+            checkAudioURL:'{apiserver}/check_audio?identity={identity}&sessionid={sessionid}&delflag=0'
         },
         
         // log checkcode加载到校验完成时间
@@ -488,7 +488,7 @@ KISSY.add('gallery/checkcode/1.1/index',function (S) {
             if(!msg) return;
 
             var img = new Image();
-            img.src = 'http://pin.aliyun.com/captchaerror?' + S.param(msg);
+            img.src = 'http://acjs.aliyun.com/captchaerror?' + S.param(msg);
         }
     });
 

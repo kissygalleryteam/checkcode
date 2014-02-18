@@ -1,9 +1,3 @@
-/*
-combined files : 
-
-gallery/checkcode/1.1/index
-
-*/
 /**
  * @fileoverview 
  * @author yanmu.wj<wondger@gmail.com>
@@ -15,7 +9,7 @@ gallery/checkcode/1.1/index
  * @author 棪木<wondger@gmail.com>
  */
 
-KISSY.add('gallery/checkcode/1.1/index',function (S) {
+KISSY.add(function (S) {
     var D = S.DOM,
         E = S.Event,
         uid = 1,
@@ -52,10 +46,10 @@ KISSY.add('gallery/checkcode/1.1/index',function (S) {
                     +'<a href="#nogo" role="button" onmousedown="return false;" title="重新获取验证码" aria-label="重新获取验证码" id="J_AudioRefresher{uid}" class="{prefixCls}checkcode-refresher">重新获取验证码</a>'
                     +'<a href="#nogo" role="button" onmousedown="return false;" title="获取图片验证码" aria-label="获取图片验证码" id="J_ImgSwitcher{uid}" class="{prefixCls}checkcode-switcher {prefixCls}img-switcher">获取图片验证码</a>'
                     +'</div>',
-            getImgURL:'{apiserver}/get_img?identity={identity}&sessionid={sessionid}&type={type}',
-            checkImgURL:'{apiserver}/check_img?identity={identity}&sessionid={sessionid}&delflag=0&type={type}',
+            getImgURL:'{apiserver}/get_img?identity={identity}&sessionid={sessionid}&kjtype={type}',
+            checkImgURL:'{apiserver}/check_img?identity={identity}&sessionid={sessionid}&delflag=0',
             getAudioURL:'{apiserver}/get_audio?identity={identity}&sessionid={sessionid}',
-            checkAudioURL:'{apiserver}/check_audio?identity={identity}&sessionid={sessionid}&delflag=0&type={type}'
+            checkAudioURL:'{apiserver}/check_audio?identity={identity}&sessionid={sessionid}&delflag=0'
         },
         
         // log checkcode加载到校验完成时间
@@ -78,6 +72,7 @@ KISSY.add('gallery/checkcode/1.1/index',function (S) {
         this.prefixCls = S.isString(cfg.prefixCls) ? cfg.prefixCls : '';
         this.identity = cfg.identity || '';
         this.sessionid = cfg.sessionid || '';
+        this.disabledAudio = !!cfg.disabledAudio;
         this.apiserver = S.isString(cfg.apiserver) && cfg.apiserver ? cfg.apiserver : 'http://pin.aliyun.com';
 
         this.type = cfg.type || "default";
@@ -496,4 +491,3 @@ KISSY.add('gallery/checkcode/1.1/index',function (S) {
 
     return CheckCode;
 });
-

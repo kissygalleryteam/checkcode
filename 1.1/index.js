@@ -46,10 +46,10 @@ KISSY.add(function (S) {
                     +'<a href="#nogo" role="button" onmousedown="return false;" title="重新获取验证码" aria-label="重新获取验证码" id="J_AudioRefresher{uid}" class="{prefixCls}checkcode-refresher">重新获取验证码</a>'
                     +'<a href="#nogo" role="button" onmousedown="return false;" title="获取图片验证码" aria-label="获取图片验证码" id="J_ImgSwitcher{uid}" class="{prefixCls}checkcode-switcher {prefixCls}img-switcher">获取图片验证码</a>'
                     +'</div>',
-            getImgURL:'{apiserver}/get_img?identity={identity}&sessionid={sessionid}&kjtype={type}',
-            checkImgURL:'{apiserver}/check_img?identity={identity}&sessionid={sessionid}&delflag=0',
+            getImgURL:'{apiserver}/get_img?identity={identity}&sessionid={sessionid}&type={type}',
+            checkImgURL:'{apiserver}/check_img?identity={identity}&sessionid={sessionid}&delflag=0&type={type}',
             getAudioURL:'{apiserver}/get_audio?identity={identity}&sessionid={sessionid}',
-            checkAudioURL:'{apiserver}/check_audio?identity={identity}&sessionid={sessionid}&delflag=0'
+            checkAudioURL:'{apiserver}/check_audio?identity={identity}&sessionid={sessionid}&delflag=0&type={type}'
         },
         
         // log checkcode加载到校验完成时间
