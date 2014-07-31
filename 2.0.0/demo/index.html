@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>checkcode的demo</title>
+    <script src="http://a.tbcdn.cn/s/kissy/1.3.0/kissy-min.js" charset="utf-8"></script>
+    <style type="text/css">
+        .i-text{height:30px;vertical-align:middle;}
+        .code-container{display:inline-block;height:30px;vertical-align:middle;}
+    </style>
+<script>var S = KISSY;S.config({packages:[{name:"kg",path:"http://g.tbcdn.cn/kg/",charset:"utf-8",ignorePackageNameInUri:true}]});if (S.Config.debug){var srcPath = "../";S.config({packages:[{name:"kg/checkcode/2.0.0",path:srcPath,charset:"utf-8",ignorePackageNameInUri:true}]});}</script></head>
+<body>
+<h2>checkcode的demo（<a href="../guide/index.html">文档</a>）</h2>
+<label for="J_CodeInput">输入验证码：</label>    
+<input id="J_CodeInput" class="i-text" type="text" name="code" value="" />
+<div id="J_CodeContainer" class="code-container"></div>
+<script>
+    var S = KISSY;
+    S.config({
+        debug: true
+    });
+    if (S.Config.debug) {
+        var srcPath = "../../../";
+        S.config({
+            packages:[
+                {
+                    name:"gallery-back",
+                    path: srcPath,
+                    charset: "utf-8",
+                    ignorePackageNameInUri: true
+                }
+            ]
+        });
+    }
+
+    S.use('kg/checkcode/2.0.0/index', function (S, Checkcode) {
+        var checkcode = new Checkcode({
+            input: "#J_CodeInput",
+            container: "#J_CodeContainer",
+            identity: "member1.taobao.com",
+            sessionid: S.now(),
+            type: "number"
+        }).showImg();
+
+        S.one("#J_CodeInput").on("blur", function(){
+            checkcode.check(function(d) {
+                if (d.success) {
+                    alert((d.codeType === "IMG" ? "图片" : "语音") + "验证码验证成功！")
+                }
+                else {
+                    alert((d.codeType === "IMG" ? "图片" : "语音") + "验证码验证失败！")
+                }
+            });
+        });
+    })
+</script>
+</body>
+</html>
